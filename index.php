@@ -1,77 +1,45 @@
 <?php
 
+// php data types
+// ==================================
+// Strings
+$string = 'Class number two';
+var_dump($string);
+// Integer -2147483648 = 2147483647
+$integer = 1234;
+var_dump($integer);
+// Float
+$float = 123.45;
+var_dump($float);
+// Boolean
+$boolean = true; // 0 / 1
+// Array
+$array = array('class one','class two','class three');
+var_dump($array);
+$array[1] = "class three";
+var_dump($array[1]);
+// Object
+readonly class car
+{
+    public function __construct(public string $color, public string $model){
+    }
 
+    public function message(): string
+    {
+        return "My car is a" . $this->color;
+    }
+}
 
-//$name = "Md Zahid";
-//$age = 27;
-//$gender = "Male";
-//
-//
-//$name = "Md Zahidul";
-//$name .= " Islam";
-//
-//
-////echo "Name: $name";
-//echo "Name: {$name}";
+$testClass = new car('Green', '2000');
 
-//$name ="";
-//$name = "md";
-//
-//echo "$name";
+var_dump($testClass);
+var_dump($testClass->message());
+// NUll
+$null = null;
+$isNotNull = "";
+var_dump("is not null", $isNotNull);
+var_dump($null);
+// Resource
+function test(){
 
-//const NAME = 'Md Zahidul Islam';
-//
-//
-//$callConstant = 'constant';
-////$name = constant('NAME');
-// echo $callConstant('NAME');
-//echo $name;
-
-//echo "<pre>";
-//var_dump($_SERVER);
-
-//$name = "Md Zahid" . PHP_EOL;
-//$x = 'it\'s my pen' . PHP_EOL;
-//
-//echo $x;
-//
-//echo $name;
-//echo PHP_EOL;
-//echo "\n";
-//echo "<br>";
-//print $name;
-
-
-// $name = "This is my name";
-
-/*
-    $name = "";
-    $age = 27;
-    $email = "mdzahid.pro@gmail.com";
-*/
-
-# this is a single line comment
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    $name = "Md Zahidul Islam";
-//
-//    echo "My name is " . $name;
-
-
-//$x = 10;
-//$y = 20;
-//
-//$x = 100;
-//
-//echo $x + $y;
+}
