@@ -1,45 +1,84 @@
 <?php
 
-// php data types
-// ==================================
-// Strings
-$string = 'Class number two';
-var_dump($string);
-// Integer -2147483648 = 2147483647
-$integer = 1234;
-var_dump($integer);
-// Float
-$float = 123.45;
-var_dump($float);
-// Boolean
-$boolean = true; // 0 / 1
-// Array
-$array = array('class one','class two','class three');
-var_dump($array);
-$array[1] = "class three";
-var_dump($array[1]);
-// Object
-readonly class car
-{
-    public function __construct(public string $color, public string $model){
-    }
+// PHP OPERATORS
+// Arithmetic operators
+// + - * / % **
+//$number_value = 100;
+//$number = 3;
+//
+//echo $number_value ** $number;
 
-    public function message(): string
-    {
-        return "My car is a" . $this->color;
-    }
-}
 
-$testClass = new car('Green', '2000');
 
-var_dump($testClass);
-var_dump($testClass->message());
-// NUll
-$null = null;
-$isNotNull = "";
-var_dump("is not null", $isNotNull);
-var_dump($null);
-// Resource
-function test(){
+// Assignment operators
+// = += -= *= /= %=
 
-}
+//$number_value = 100;
+//$number_value %= 20;
+//
+//echo $number_value;
+
+
+// Comparison Operators
+// == , ===, != , !== , > , < , >= , <= , <=>
+
+//$x = 9;
+//$y = 10;
+//
+//$comparison = $x <=> $y;
+// false | true
+//var_dump($comparison);
+
+// Increment / decrement = operators
+
+//$x = 9;
+//
+//echo --$x;
+
+// Logical operators
+// and, or, xor, &&, || , !
+//$x = 10;
+//$y = 20;
+//
+////var_dump($x === 11 or $y === 20);
+//$condition = ($x == 11 xor $y == 20);
+//
+//var_dump($condition);
+
+// string operator
+$string = "Md Zahidul" . " Islam";
+$string .= " Islam";
+
+//echo $string;
+// array operator
+// + == === != <> !==
+$array1 = [1,2,3];
+$array2 = [1,2,4];
+
+$union = $array1 + $array2;
+$equality = $array1 <> $array2;
+//var_dump($equality);
+
+// Conditional assignment operator
+// ternary Null coalescing
+// ?:
+// ??
+$x = null;
+$y = 20;
+
+$ternary = $x === 10 ? "Condition passed" : "Condition failed";
+$nullCoalescing = $x ?? "Value not found!";
+
+//var_dump($nullCoalescing);
+
+
+
+
+//spaceship operator example
+
+//$array = [3,1,5,7,9,2,4,6,8];
+//usort($array, function ($a, $b) {
+//    return $a <=> $b;
+//});
+//echo "<pre>";
+//var_dump($array);
