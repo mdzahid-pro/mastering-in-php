@@ -1,84 +1,115 @@
 <?php
 
-// PHP OPERATORS
-// Arithmetic operators
-// + - * / % **
-//$number_value = 100;
-//$number = 3;
+// if
+
+//if(true | false) {
+//    echo "condition passed!";
+//}else {
+//    echo "failed to passed!";
+//}
+
+// if operators
+//$age = 18;
 //
-//echo $number_value ** $number;
-
-
-
-// Assignment operators
-// = += -= *= /= %=
-
-//$number_value = 100;
-//$number_value %= 20;
+//if($age >= 18) {
+//    echo "You're eligible!";
+//    $nid = "Your nid has created!";
+//}
 //
-//echo $number_value;
+//echo $nid;
+
+// if else
+
+//if($age >= 18) {
+//    echo "You're eligible!";
+//    $nid = "Your nid has created!";
+//}else {
+//    echo "You're not eligible!";
+//    $nid = "Your nid hasn't created!";
+//}
 
 
-// Comparison Operators
-// == , ===, != , !== , > , < , >= , <= , <=>
+// shorter if else
 
-//$x = 9;
-//$y = 10;
+
+//if(false):
+//    echo "You have passed this condition.";
+//endif;
 //
-//$comparison = $x <=> $y;
-// false | true
-//var_dump($comparison);
-
-// Increment / decrement = operators
-
-//$x = 9;
 //
-//echo --$x;
+//if(false):
+//    echo "You have passed this condition.";
+//else:
+//    echo "You have not passed this condition.";
+//endif;
 
-// Logical operators
-// and, or, xor, &&, || , !
-//$x = 10;
-//$y = 20;
+// nested if else
+
+//$age = 20;
+//$gender = "female";
+//$country = "bangladesh";
+//$score = 50;
 //
-////var_dump($x === 11 or $y === 20);
-//$condition = ($x == 11 xor $y == 20);
+//echo "Your grade is: ";
 //
-//var_dump($condition);
+//if($age > 18){
+//    if($gender === "male"){
+//        if($country === 'bangladesh'){
+//           if($score >= 90){
+//               echo "A";
+//           } elseif ($score >= 80) {
+//               echo "B";
+//           }elseif ($score >= 70) {
+//               echo "C";
+//           }elseif ($score >= 60) {
+//               echo "D";
+//           }else{
+//               echo "F";
+//           }
+//        }else{
+//            echo "You're not bangladeshi.";
+//        }
+//    } else {
+//       echo "You're not eligible for grade cause you're not a male.";
+//    }
+//}
 
-// string operator
-$string = "Md Zahidul" . " Islam";
-$string .= " Islam";
+// switch
+$value = "male";
 
-//echo $string;
-// array operator
-// + == === != <> !==
-$array1 = [1,2,3];
-$array2 = [1,2,4];
+//switch($value){
+//    case "female":
+//    case "male":
+//        echo "You're a human";
+//    break;
+//    case "apple":
+//        echo "The fruit is an Apple";
+//    break;
+//    case "banana":
+//        echo "The fruit is an banana.";
+//    break;
+//    case "orange":
+//        echo "The fruit is an orange.";
+//    break;
+//    case "chicken":
+//        echo "The fruit is a chicken.";
+//    break;
+//    default:
+//        echo "Unknown";
+//}
 
-$union = $array1 + $array2;
-$equality = $array1 <> $array2;
-//var_dump($equality);
+// match
+$match = match ($value){
+    "female", "male" => human(),
+    "apple" => "Apple",
+    "banana" => "Banana",
+    "orange" => "Orange",
+    "chicken" => "Chicken",
+    default => "Unknown",
+};
 
-// Conditional assignment operator
-// ternary Null coalescing
-// ?:
-// ??
-$x = null;
-$y = 20;
+echo $match;
 
-$ternary = $x === 10 ? "Condition passed" : "Condition failed";
-$nullCoalescing = $x ?? "Value not found!";
-
-//var_dump($nullCoalescing);
-
-
-
-
-//spaceship operator example
-
-//$array = [3,1,5,7,9,2,4,6,8];
-//usort($array, function ($a, $b) {
-//    return $a <=> $b;
-//});
-//echo "<pre>";
-//var_dump($array);
+function human(){
+    return "You're a human";
+}
