@@ -1,115 +1,87 @@
 <?php
 
-// if
+$numbers = array(1,2,3,4,5,6,7,8,9,10);
 
-//if(true | false) {
-//    echo "condition passed!";
-//}else {
-//    echo "failed to passed!";
+//echo $numbers[0] . "\n";
+//echo $numbers[1] . "\n";
+//echo $numbers[2] . "\n";
+//echo $numbers[3] . "\n";
+//echo $numbers[4] . "\n";
+//echo $numbers[5] . "\n";
+//echo $numbers[6] . "\n";
+//echo $numbers[7] . "\n";
+//echo $numbers[8] . "\n";
+//echo $numbers[9] . "\n";
+
+$counter = 0;
+
+// while
+//while(false){
+//    echo "While loop is runnign.";
 //}
 
-// if operators
-//$age = 18;
+//$index = 0;
+//while($counter < count($numbers)){
 //
-//if($age >= 18) {
-//    echo "You're eligible!";
-//    $nid = "Your nid has created!";
+//    if($numbers[$counter] % 2 == 0){
+//        echo $numbers[$counter] . "\n";
+//    }
+//
+//    $counter++;
 //}
+// do while
+//do{
 //
-//echo $nid;
-
-// if else
-
-//if($age >= 18) {
-//    echo "You're eligible!";
-//    $nid = "Your nid has created!";
-//}else {
-//    echo "You're not eligible!";
-//    $nid = "Your nid hasn't created!";
-//}
-
-
-// shorter if else
-
-
-//if(false):
-//    echo "You have passed this condition.";
-//endif;
+//    echo "Loop is run";
 //
 //
-//if(false):
-//    echo "You have passed this condition.";
-//else:
-//    echo "You have not passed this condition.";
-//endif;
-
-// nested if else
-
-//$age = 20;
-//$gender = "female";
-//$country = "bangladesh";
-//$score = 50;
+//    if($numbers[$counter] % 2 == 0){
+//        echo $numbers[$counter] . "\n";
+//    }
 //
-//echo "Your grade is: ";
-//
-//if($age > 18){
-//    if($gender === "male"){
-//        if($country === 'bangladesh'){
-//           if($score >= 90){
-//               echo "A";
-//           } elseif ($score >= 80) {
-//               echo "B";
-//           }elseif ($score >= 70) {
-//               echo "C";
-//           }elseif ($score >= 60) {
-//               echo "D";
-//           }else{
-//               echo "F";
-//           }
-//        }else{
-//            echo "You're not bangladeshi.";
-//        }
-//    } else {
-//       echo "You're not eligible for grade cause you're not a male.";
+//    $counter++;
+//} while(false);
+// for
+
+//for ($i = 0; $i < count($numbers); $i++){
+//    if($numbers[$i] % 2 == 0){
+//        echo $numbers[$i] . "\n";
 //    }
 //}
 
-// switch
-$value = "male";
-
-//switch($value){
-//    case "female":
-//    case "male":
-//        echo "You're a human";
-//    break;
-//    case "apple":
-//        echo "The fruit is an Apple";
-//    break;
-//    case "banana":
-//        echo "The fruit is an banana.";
-//    break;
-//    case "orange":
-//        echo "The fruit is an orange.";
-//    break;
-//    case "chicken":
-//        echo "The fruit is a chicken.";
-//    break;
-//    default:
-//        echo "Unknown";
+// foreach
+//foreach ($numbers as $key => $value) {
+//    echo $key . ' => ' . $value . "\n";
+//    if($value % 2 == 0){
+//        echo $value . "\n";
+//    }
 //}
 
-// match
-$match = match ($value){
-    "female", "male" => human(),
-    "apple" => "Apple",
-    "banana" => "Banana",
-    "orange" => "Orange",
-    "chicken" => "Chicken",
-    default => "Unknown",
-};
+// break and continue
+foreach ($numbers as $key => $number) {
+    if($key == 9){
+        echo "I have found this {$key} number.\n";
 
-echo $match;
+        break;
+    }
 
-function human(){
-    return "You're a human";
+    if($key == 4){
+        echo "hey i'm skipping this iteration. \n" ;
+        continue 1;
+    }
+
+    echo $key . "\n parent loop \n";
+
+    foreach ($numbers as $s_key => $s_number) {
+        if($s_key == 4){
+            continue 2;
+        }
+
+        echo $s_number . ", ";
+        if($s_key == 3){
+            echo "\n";
+        }
+    }
+
+    echo "\n parent loop end \n";
 }
