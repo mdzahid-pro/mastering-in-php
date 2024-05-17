@@ -1,17 +1,64 @@
 <?php
 
-$numbers = array(1,2,3,4,5,6,7,8,9,10);
+// drawing square shape
+$size = 5;
 
-$counter = 0;
-
-while($counter < count($numbers)){
-
-    if($numbers[$counter] == 5){
-        echo "I am five";
-        break;
+for ($row = 0; $row < $size; $row++) {
+    for ($col = 0; $col < $size; $col++) {
+        echo " * ";
     }
 
-    echo $numbers[$counter] . PHP_EOL;
+    echo "\n";
+}
 
-    $counter++;
+// drawing a right triangle
+for ($row = 0; $row < $size; $row++) {
+    for ($col =1; $col <= $row; $col++){
+        echo "* ";
+    }
+
+    echo "\n";
+}
+
+echo "\n=========================== \n\n";
+
+// drawing an inverted right triangle
+for ($row = $size; $row > 0; $row--) {
+    for ($col = 1; $col <= $row; $col++) {
+        echo "* ";
+    }
+
+    echo "\n";
+}
+
+
+echo "\n=========================== \n\n";
+
+// drawing a pyramid
+for ($row = 1; $row <= $size; $row++) {
+    // print spaces before start
+    for ($space = $size - $row; $space > 0; $space--){
+        echo "  ";
+    }
+
+    // print starts after spaces
+    for ($col = 1; $col <= (2 * $row - 1); $col++){
+        echo "* ";
+    }
+
+    echo "\n";
+}
+
+
+// drawing a diamond
+for ($row = $size -1; $row > 0; $row--) {
+    for ($space = 0; $space < $size - $row; $space++) {
+        echo "  ";
+    }
+
+    for ($col = 1; $col <= (2 * $row - 1); $col++){
+        echo "* ";
+    }
+
+    echo "\n";
 }
