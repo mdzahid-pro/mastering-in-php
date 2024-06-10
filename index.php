@@ -1,15 +1,30 @@
 <?php
 
-function view(string $path): string
-{
-    ob_start();
-    require "$path.php";
+// global scope, local scope, global keyword, global variables, static variable
+$x = 10;
 
-    return ob_get_clean();
+//include "variable.php";
+
+function staticFunction(){
+    sleep(2);
+
+    echo "static functions";
+
+    return 20;
 }
 
-ob_start();
-require "layout.php";
-$layout = ob_get_clean();
+function foo(): ?int
+{
+    static $y = null;
 
-echo (str_replace("@content", view('service'), $layout));
+    if($y == null){
+        $y = staticFunction();
+    }
+
+    return $y;
+}
+
+echo foo(). '<br>';
+echo foo(). '<br>';
+echo foo(). '<br>';
+echo foo(). '<br>';
