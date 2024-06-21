@@ -1,30 +1,71 @@
 <?php
 
-// global scope, local scope, global keyword, global variables, static variable
+// functions types in php
+// variable, anonymous lambda, closure and arrow function
+
+// variable
+
+//$anonymous = function ($a, $b) { // user defined function
+//    return $a + $b;
+//};
+//
+//echo $anonymous(10, 20);
+//die();
+//
+//
+//$v = "add";
+//
+//if(is_callable($v)) {
+//    echo $v(10, 20);
+//    // add(10, 20)
+//}else{
+//    echo "Not callable";
+//}
+//
 $x = 10;
 
-//include "variable.php";
+//$foo = function () use ($x)
+//{
+//    echo "variable x = $x";
+//};
+//
+//echo $foo();
 
-function staticFunction(){
-    sleep(2);
+//function foo(){
+//    global $x;
+//    echo $x;
+//}
+//
+//echo foo();
 
-    echo "static functions";
 
-    return 20;
-}
-
-function foo(): ?int
-{
-    static $y = null;
-
-    if($y == null){
-        $y = staticFunction();
+function arrayMap(closure $callback, array $numbers): array {
+    $temp = [];
+    foreach ($numbers as $number) {
+        $temp[] = $callback($number);
     }
 
-    return $y;
-}
+    return $temp;
+};
 
-echo foo(). '<br>';
-echo foo(). '<br>';
-echo foo(). '<br>';
-echo foo(). '<br>';
+
+$numbers = [1,2,3,4,5];
+
+function call($number){
+    return $number * 2;
+};
+
+//$updatedNumbers = arrayMap(function ($number){
+//    return $number * 2;
+//}, $numbers);
+
+// arrow function example
+$updatedNumbers = arrayMap(fn ($number) => $number * 2, $numbers);
+
+echo "<pre>";
+print_r($numbers);
+echo "</pre>";
+
+echo "<pre>";
+print_r($updatedNumbers);
+echo "</pre>";
