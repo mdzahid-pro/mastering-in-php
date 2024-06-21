@@ -1,71 +1,25 @@
 <?php
 
-// functions types in php
-// variable, anonymous lambda, closure and arrow function
+// working with unix datetime or timestamp
 
-// variable
+$current_timestamp = time();
+//echo $current_timestamp . "<br>";
+//echo $current_timestamp + 86400 . "<br>"; // add one day
+//echo $current_timestamp - 86400 . "<br>"; // subtract one day
+//echo $current_timestamp + 7 * 24 * 60 * 60 . "<br>"; // add 7 days
 
-//$anonymous = function ($a, $b) { // user defined function
-//    return $a + $b;
-//};
-//
-//echo $anonymous(10, 20);
-//die();
-//
-//
-//$v = "add";
-//
-//if(is_callable($v)) {
-//    echo $v(10, 20);
-//    // add(10, 20)
-//}else{
-//    echo "Not callable";
-//}
-//
-$x = 10;
+//echo date_default_timezone_get() ."<br>";
+date_default_timezone_set("Asia/Dhaka");
 
-//$foo = function () use ($x)
-//{
-//    echo "variable x = $x";
-//};
-//
-//echo $foo();
+// format unix timestamp
+$formatted_date = date("Y-F-D h:i:sa", $current_timestamp) . "<br>";
 
-//function foo(){
-//    global $x;
-//    echo $x;
-//}
-//
-//echo foo();
+// add 5 days from current time by using mktime
+$timestamp = mktime(0,0,0, 6,26, 2050);
+//echo date("Y-m-d H:i:s", $timestamp) . "<br>";
+//echo "<pre>";
+//print_r(date_parse(date("Y-m-d H:i:s", $timestamp)));
 
+$timestamp = strtotime("2024-12-31");
 
-function arrayMap(closure $callback, array $numbers): array {
-    $temp = [];
-    foreach ($numbers as $number) {
-        $temp[] = $callback($number);
-    }
-
-    return $temp;
-};
-
-
-$numbers = [1,2,3,4,5];
-
-function call($number){
-    return $number * 2;
-};
-
-//$updatedNumbers = arrayMap(function ($number){
-//    return $number * 2;
-//}, $numbers);
-
-// arrow function example
-$updatedNumbers = arrayMap(fn ($number) => $number * 2, $numbers);
-
-echo "<pre>";
-print_r($numbers);
-echo "</pre>";
-
-echo "<pre>";
-print_r($updatedNumbers);
-echo "</pre>";
+echo date("m-y-d", $timestamp) . "<br>";
